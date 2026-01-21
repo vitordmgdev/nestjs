@@ -7,7 +7,7 @@ import { CreateTaskDto } from './dto/create-task.dto';
 export class TaskService {
     private readonly tasks: Task[] = [];
 
-    async findAll(): Promise<Task[]> {
+    findAll(): Task[] {
         return this.tasks;
     }
 
@@ -23,7 +23,7 @@ export class TaskService {
         return task;
     }
 
-    create(task: CreateTaskDto) {
+    create(task: CreateTaskDto): Task {
         const id = uuidv4();
         const newTask = { id, ...task };
 
@@ -41,7 +41,7 @@ export class TaskService {
         }
 
         this.tasks.splice(taskIndex, 1);
-        
+
         return this.tasks;
     }
 }
