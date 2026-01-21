@@ -57,6 +57,6 @@ export class TaskService {
 
         this.tasks.splice(taskIndex, 1);
 
-        return this.tasks;
+        return this.tasks[taskIndex];
     }
 }
